@@ -10,6 +10,7 @@ module.exports = {
       String.raw`D:\programming\web development\etch-a-sketch-redo\dist`
     ),
   },
+  devtool: "inline-source-map",
   plugins: [
     new HtmlWebpackPlugin({
       title: "Etch-a-sketch",
