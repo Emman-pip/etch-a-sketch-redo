@@ -53,16 +53,19 @@ function inkColor() {
   return ink.toString();
 }
 
-function etching(cells) {
-  cells.addEventListener("mouseenter", (e) => {
-    let ink = inkColor();
-    cells.style.backgroundColor = ink;
-    console.log(e);
+function reset(cells) {
+  clear.addEventListener("click", () => {
+    cells.style.backgroundColor = "#b6b65a";
   });
 }
-(() => {
-  sliderToGridValue();
-})();
+
+function etching(cells) {
+  reset(cells);
+  cells.addEventListener("mouseenter", () => {
+    let ink = inkColor();
+    cells.style.backgroundColor = ink;
+  });
+}
 
 function useEtchingAndInk() {
   let cells = document.querySelectorAll(".cells");
@@ -72,3 +75,7 @@ function useEtchingAndInk() {
     etching(cell);
   });
 }
+(() => {
+  sliderToGridValue();
+  window.addEventListener("resize", () => sliderToGridValue());
+})();
