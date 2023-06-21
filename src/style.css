@@ -89,6 +89,7 @@ body {
   width: 2rem;
   height: 2rem;
   cursor: pointer;
+  border-radius: 100px;
 }
 .color.color::-webkit-color-swatch-wrapper {
   -webkit-appearance: none;
@@ -121,4 +122,29 @@ button:active {
   height: 2rem;
   width: 4rem;
   background-color: var(--main-color);
+}
+
+body {
+  background: radial-gradient(rgba(0, 0, 0, 0.253), var(--secondary-color));
+}
+
+@media (max-width: 1350px) {
+  .gridContainer {
+    min-height: 473.75px;
+    min-width: 473.75px;
+  }
+}
+
+@media (max-width: 470px) {
+  .gridContainer {
+    min-height: 80vw;
+    min-width: 80vw;
+  }
+}
+
+@media (max-width: 340px) {
+  .title {
+    font-size: 20%;
+    min-width: 20rem;
+  }
 }
