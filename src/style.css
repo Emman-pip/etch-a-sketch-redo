@@ -1,1 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 1px solid black;
+}
 
+.gridContainer {
+  width: 50vw;
+  height: 50vw;
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+}
+
+.cells {
+  background-color: whitesmoke;
+}
