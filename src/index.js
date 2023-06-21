@@ -1,15 +1,28 @@
-import { body, titleBar, gridContainer, slider, color } from "./domElements.js";
+import {
+  mainContainer,
+  body,
+  titleBar,
+  gridContainer,
+  slider,
+  color,
+  clear,
+  colorAndClearContainer,
+  mainContainerFr,
+} from "./domElements.js";
 import "./style.css";
 
 (function DomPlacement() {
-  titleBar.textContent = "asdohu";
   body.appendChild(titleBar);
-  body.appendChild(gridContainer);
-  body.appendChild(slider);
-  body.appendChild(color);
+  body.appendChild(mainContainer);
+  mainContainer.appendChild(gridContainer);
+  mainContainer.appendChild(slider);
+  mainContainer.appendChild(colorAndClearContainer);
+  colorAndClearContainer.appendChild(color);
+  colorAndClearContainer.appendChild(clear);
 })();
 
 function gridMaker(value) {
+  gridContainer.innerHTML = "";
   const totalSize = Number.parseFloat(getComputedStyle(gridContainer).width);
   console.log(totalSize / value);
   for (let i = 0; i < value; i++) {
@@ -24,6 +37,7 @@ function gridMaker(value) {
       row.appendChild(cells);
     }
   }
+  useEtchingAndInk();
 }
 
 function sliderToGridValue() {
@@ -50,11 +64,11 @@ function etching(cells) {
   sliderToGridValue();
 })();
 
-let cells = document.querySelectorAll(".cells");
-cells.forEach((cell) => {
-  let ink = inkColor();
-  console.log(ink);
-  etching(cell);
-});
-
-//fix color and draw function
+function useEtchingAndInk() {
+  let cells = document.querySelectorAll(".cells");
+  cells.forEach((cell) => {
+    let ink = inkColor();
+    console.log(ink);
+    etching(cell);
+  });
+}
